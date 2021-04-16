@@ -1,4 +1,4 @@
-FROM resin/raspberry-pi-debian:jessie
+FROM balena-io/raspberry-pi-debian:jessie
 
 # Install build tools and remove layer cache afterwards
 RUN apt-get -q update && apt-get install -yq --no-install-recommends \
