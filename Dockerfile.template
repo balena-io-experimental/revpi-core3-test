@@ -9,6 +9,8 @@ RUN apt-get -q update && apt-get install -yq --no-install-recommends \
 # Switch to working directory for our app
 WORKDIR /usr/src/app
 
+COPY test.sh test.sh
+
 # Clone and compile Kunbus's piTest binary
 RUN git clone https://github.com/RevolutionPi/piControl
 RUN cd /usr/src/app/piControl/piTest && make
@@ -17,4 +19,4 @@ RUN cd /usr/src/app/piControl/piTest && make
 ENV INITSYSTEM on
 
 # Sleep as we execute the remaining part of the test manually
-CMD sleep 10000000
+CMD [ "bash", "./test.sh" ]
